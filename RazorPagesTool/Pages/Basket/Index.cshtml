@@ -1,0 +1,56 @@
+﻿@page
+@model RazorPagesTool.Pages.Basket.IndexModel
+@{
+    ViewData["Title"] = "Корзина";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Tool[0].Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tool[0].Price)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            if (Model.Tool != null)
+            {
+                foreach (var item in Model.Tool)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Title)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Price)
+                        </td>
+                        <td>
+
+                            <form method="post">
+                                <input hidden asp-for="@item.Id" name="Id" />
+                                <input hidden name="delete" value="true" />
+                                <input type="submit" value="Убрать" />
+                            </form>
+
+                        </td>
+                    </tr>
+                }
+            }
+        }
+        
+    </tbody>
+</table>
+
+<span>Итого : @Html.DisplayFor(modelItem => modelItem.TotalPrice) руб</span>
+
+<form method="post">
+    <button class="btn-lg w-100 my-3 btn-danger" type="submit">Подтвердить заказ</button>
+
+</form>
+

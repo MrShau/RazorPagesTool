@@ -1,0 +1,134 @@
+﻿@page
+@model RazorPagesTool.Pages.Tools.IndexModel
+
+@{
+    ViewData["Title"] = "Инструменты в аренду";
+}
+
+<h1>Инструменты в аренду</h1>
+
+<img class="one" src="https://spb.geon.ru/upload/iblock/a0d/vi29bl7rokxe7dcsbr4izpl46dzisv6m.webp" width="135", heigth
+="120"/>
+<img class="two" src="https://avatars.mds.yandex.net/get-mpic/5247291/img_id6654802659861868365.jpeg/orig" width="135" , heigth="120" />
+<img class="three" src="https://bort-rus.ru/wa-data/public/shop/products/08/00/8/images/55/55.970.jpg" width="135" , heigth="120" />
+<img class="four" src="https://sezontruda.ru/wa-data/public/shop/products/82/41/14182/images/30036/30036.750x0.jpeg" width="135" , heigth="120" />
+<img class="five" src="https://toolsdiamond.ru/upload/iblock/be3/be3f5f96c25a756d8c2afd7e729867b6.jpeg" width="135" , heigth="120" />
+<img class="six" src="https://avatars.mds.yandex.net/get-mpic/5236045/img_id1311049011770411031.jpeg/orig" width="135" , heigth="120" />
+<img class="seven" src="https://s.leroymerlin.ru/upload/catalog/img/5/3/81992740/81992740.jpg" width="135" , heigth="120" />
+<img class="eight" src="https://sadteh24.ru/wa-data/public/shop/products/35/12/31235/images/48563/48563.970.jpg" width="135" , heigth="120" />
+<img class="nine" src="https://cdn.vseinstrumenti.ru/images/goods/1314452/1000x1000/51718834.jpg" width="135" , heigth="120" />
+<img class="ten" src="https://ai911.ru/upload/iblock/b5e/011000.jpeg" width="135" , heigth="120" />
+
+<style>
+    h1{
+        text-align: center;
+    }
+    img.one{
+        position: absolute;
+        left: 270px;
+        top: 309px;
+    }
+
+    img.two {
+        position: absolute;
+        left: 270px;
+        top: 444px;
+    }
+
+    img.three {
+        position: absolute;
+        left: 270px;
+        top: 584px;
+    }
+
+    img.four {
+        position: absolute;
+        left: 270px;
+        top: 716px;
+    }
+    img.five{
+        position: absolute;
+        left: 270px;
+        top: 856px;
+        height: 135px;
+    }
+
+    img.six{
+        position: absolute;
+        left: 270px;
+        top: 991px;
+        height: 137px;
+    }
+
+    img.seven {
+        position: absolute;
+        left: 270px;
+        top: 1128px;
+    }
+    img.eight{
+        position: absolute;
+        left: 270px;
+        top: 1263px;
+    }
+
+    img.nine {
+        position: absolute;
+        left: 270px;
+        top: 1398px;
+    }
+
+    img.ten {
+        position: absolute;
+        left: 270px;
+        height: 143px;
+        top: 1533px;
+    }
+
+    .table > :not(caption) > * > *{
+        padding: 3.5rem 0.5rem;
+    }
+
+    
+
+   
+</style>
+
+
+<form>
+    <p>
+        Введите название: <input type="text" asp-for="SearchString" />
+        <input type="submit" value="Найти" />
+    </p>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Tool[0].Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tool[0].Price)
+            </th>
+          
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Tool) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td >
+                 
+                <a asp-page="./Details" asp-route-id="@item.Id">Подробнее</a> |
+                
+                <a asp-page="./Delete" asp-route-id="@item.Id">В корзину</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

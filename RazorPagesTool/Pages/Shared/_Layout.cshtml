@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Tool</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/RazorPagesTool.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <style>
+        a{
+            margin-left: 20px;
+        }
+    </style>
+    <header>
+        <span class="logo">SuperTools</span>
+        <nav>
+            <a href="/">Главная</a>
+            <a href="/Tools/Index">Выбрать инструмент</a>
+            <a href="/Basket/Index">Корзина</a>
+        </nav>
+    </header>
+    <main>
+        @RenderBody()
+    </main>
+    <footer>Все права защищены</footer>
+</body>
+</html>

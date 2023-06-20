@@ -1,0 +1,50 @@
+﻿@page
+@model RazorPagesTool.Pages.Tools.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+
+
+<h1>Подтверждение покупки</h1>
+
+<h3>Вы уверены, что хотите взять @Html.DisplayFor(model => model.Tool.Title) в аренду?</h3>
+<div>
+    <h4>Аренда сроком на 7 дней</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Tool.Title)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Tool.Title)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Tool.Price)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Tool.Price)
+        </dd>
+    </dl>
+    
+    @{
+        if (Model.Tool.Count <= 0)
+        {
+            <span style="color: red;">Нет в наличии</span>
+            <a asp-page="./Index">Назад к инструментам</a>
+
+        }
+        else
+        {
+            <form method="post">
+                <input type="hidden" asp-for="Tool.Id" />
+                <input type="submit" value="Оформить заказ" class="btn btn-danger" /> |
+                <a asp-page="./Index">Назад к инструментам</a>
+            </form>
+        }
+
+    }
+
+    
+</div>
